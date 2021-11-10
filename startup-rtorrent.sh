@@ -24,6 +24,9 @@ chown -R rtorrent:rtorrent /downloads/.log/rtorrent
 
 rm -f /downloads/.rtorrent/session/rtorrent.lock
 
+#setup pyrocore
+bash /root/setup-pyrocore.sh
+
 # run
 su --login --command="TERM=xterm rtorrent" rtorrent 
 
