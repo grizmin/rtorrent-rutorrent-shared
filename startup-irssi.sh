@@ -22,8 +22,8 @@ fi
 if [ -f /downloads/.autodl/autodl.cfg ]
 then
 	echo "Found an existing autodl configs. Will not reinitialize."
-	irssi_port=$(grep gui-server-port /downloads/.autodl/autodl2.cfg | awk '{print $3}')
-	irssi_pass=$(grep gui-server-password /downloads/.autodl/autodl2.cfg | awk '{print $3}')
+	irssi_port=$(grep gui-server-port /downloads/.autodl/autodl.cfg | awk '{print $3}')
+	irssi_pass=$(grep gui-server-password /downloads/.autodl/autodl.cfg | awk '{print $3}')
 else
 	echo "Need to set up a new autodl install."
 
@@ -32,7 +32,7 @@ else
 	
 	echo "Creating necessary configuration files ... "
 	touch /downloads/.autodl/autodl.cfg
-	cat >/downloads/.autodl/autodl2.cfg<<ADC
+	cat >/downloads/.autodl/autodl.cfg<<ADC
 [options]
 gui-server-port = ${irssi_port}
 gui-server-password = ${irssi_pass}
