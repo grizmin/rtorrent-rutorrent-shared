@@ -47,12 +47,14 @@ if [ ! -d /home/rtorrent/.irssi ]
 then
 	echo "Creating necessary directory structure for irssi and downloading files ... "
 	mkdir -p /home/rtorrent/.irssi/scripts/autorun && cd /home/rtorrent/.irssi/scripts || (echo "mkdir failed ... " && exit 1)
-	# curl -sL http://git.io/vlcND | grep -Po '(?<="browser_download_url": ")(.*-v[\d.]+.zip)' | xargs wget --quiet -O autodl-irssi.zip
-	# unzip -o autodl-irssi.zip >/dev/null 2>&1
-	# rm autodl-irssi.zip
-	git clone https://github.com/hiphopotamus/autodl-irssi
-	cp -rp autodl-irssi/AutodlIrssi .
-	cp autodl-irssi/autodl-irssi.pl autorun/
+	curl -sL http://git.io/vlcND | grep -Po '(?<="browser_download_url": ")(.*-v[\d.]+.zip)' | xargs wget --quiet -O autodl-irssi.zip
+	unzip -o autodl-irssi.zip >/dev/null 2>&1
+	rm autodl-irssi.zip
+	#patches
+	cp /a/patches/autodl-irssi/* AutodlIrssi/
+	# git clone https://github.com/hiphopotamus/autodl-irssi
+	# cp -rp autodl-irssi/AutodlIrssi .
+	cp autodl-irssi.pl autorun/
 	chown -R rtorrent:rtorrent /home/rtorrent/.irssi
 	sed -i -e 's/1.86/1.84/g' /home/rtorrent/.irssi/scripts/AutodlIrssi/SslSocket.pm
 else
