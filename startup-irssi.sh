@@ -54,6 +54,9 @@ then
 	# cp /a/patches/autodl-irssi/* AutodlIrssi/
 	# git clone https://github.com/hiphopotamus/autodl-irssi
 	# cp -rp autodl-irssi/AutodlIrssi .
+	git clone https://github.com/autodl-community/autodl-trackers.git
+	rm -rf AutodlIrssi/trackers
+	cp -r autodl-trackers/trackers AutodlIrssi/trackers
 	cp autodl-irssi.pl autorun/
 	chown -R rtorrent:rtorrent /home/rtorrent/.irssi
 	sed -i -e 's/1.86/1.84/g' /home/rtorrent/.irssi/scripts/AutodlIrssi/SslSocket.pm
