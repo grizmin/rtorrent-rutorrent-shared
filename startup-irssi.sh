@@ -51,7 +51,7 @@ then
 	unzip -o autodl-irssi.zip >/dev/null 2>&1
 	rm autodl-irssi.zip
 	#patches
-	cp /a/patches/autodl-irssi/* AutodlIrssi/
+	# cp /a/patches/autodl-irssi/* AutodlIrssi/
 	# git clone https://github.com/hiphopotamus/autodl-irssi
 	# cp -rp autodl-irssi/AutodlIrssi .
 	cp autodl-irssi.pl autorun/
